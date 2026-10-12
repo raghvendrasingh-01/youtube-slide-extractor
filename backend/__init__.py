@@ -1,0 +1,1 @@
+"""FrameNotes AI backend package."""

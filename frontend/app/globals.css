@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page: #f5f7f4;
+  --ink: #12201c;
+  --muted: #52645b;
+  --line: #dce6df;
+  --panel: rgba(255, 255, 255, 0.84);
+  --panel-solid: #ffffff;
+  --frame-bg: #e7eee9;
+  --forest: #143c2c;
+  --mint: #b8f1d4;
+  --lime: #dfff7f;
+  --danger-line: #e7bebe;
+  --danger-surface: #fff5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 320px;
+  background: var(--page);
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      circle at 85% 2%,
+      rgba(184, 241, 212, 0.46),
+      transparent 25rem
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      rgba(223, 255, 127, 0.18),
+      transparent 24rem
+    ),
+    var(--page);
+  font-feature-settings:
+    "ss01" 1,
+    "cv11" 1;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(20, 60, 44, 0.38);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-[1380px] px-5 md:px-8 xl:px-12;
+  }
+  .panel {
+    @apply rounded-3xl border border-line bg-panel shadow-soft backdrop-blur;
+  }
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-muted;
+  }
+  .muted {
+    @apply text-sm leading-6 text-muted;
+  }
+  .input-control {
+    @apply w-full rounded-2xl border border-line bg-panel px-4 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-forest focus:ring-4 focus:ring-forest/10;
+  }
+  .label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-[0.12em] text-muted;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest px-5 py-3 text-sm font-bold text-white shadow-lg shadow-forest/15 transition hover:-translate-y-0.5 hover:bg-[#0d2e21] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-panel px-5 py-3 text-sm font-bold text-ink transition hover:border-forest/40 hover:bg-forest/5 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-muted transition hover:bg-forest/5 hover:text-ink disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-panel px-3 py-1.5 text-xs font-semibold text-muted;
+  }
+  .action-button {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-panel text-ink shadow transition hover:border-forest/40 hover:bg-mint disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
+
+::selection {
+  background: #b8f1d4;
+  color: #12201c;
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #0d1713;
+  --ink: #ecf6ef;
+  --muted: #b5c9ba;
+  --line: #2a4035;
+  --panel: rgba(19, 37, 28, 0.9);
+  --panel-solid: #13251c;
+  --frame-bg: #1c3428;
+  --forest: #b8f1d4;
+  --danger-line: #704044;
+  --danger-surface: #2a1b1e;
+}
+.dark body {
+  color: var(--ink);
+  background:
+    radial-gradient(
+      circle at 85% 2%,
+      rgba(41, 102, 73, 0.35),
+      transparent 25rem
+    ),
+    var(--page);
+}
+.dark .text-forest {
+  color: #ecf6ef !important;
+}
+.dark .text-ink {
+  color: #ecf6ef !important;
+}
+.dark .text-warning {
+  color: #e7c466 !important;
+}
+.dark .text-\[\#a84141\] {
+  color: #f0a4a4 !important;
+}
+.dark .border-line {
+  border-color: #2a4035 !important;
+}
+.dark .bg-forest\/5 {
+  background-color: rgba(184, 241, 212, 0.08) !important;
+}
+.dark .bg-forest\/10 {
+  background-color: rgba(184, 241, 212, 0.12) !important;
+}
+.dark .btn-primary {
+  color: #102019;
+}
+.dark .btn-secondary {
+  color: #ecf6ef;
+}
+.dark .btn-ghost {
+  color: #b5c9ba;
+}
+.dark .input-control {
+  color: #ecf6ef;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
